@@ -101,3 +101,29 @@ document.write("   / 5 = ");
 calculate(5, divide);
 document.write(" 20 / 0 = ");
 calculate(20, 0, divide);
+// 2 -----------------------------
+var arr = [1, 2, 3, 4, 5];
+document.write("Наш массив : " + arr.join(" ") + "<br/>");
+function myFunction(array) {
+  var newArray = [];
+  for (var i = 0; i < array.length; i++) {
+    newArray[i] = array[i] + 5;
+  }
+  return newArray;
+}
+function map(fn, array) {
+  var result = fn(array);
+  return result;
+}
+var newArr = map(myFunction, arr);
+document.write("Наш новый массив : " + newArr.join(" ") + "<br/><hr/>");
+// 3 -----------------------------
+var age = parseInt(prompt("Введите свой возраст : ", ""));
+console.log(typeof age);
+console.log(age);
+function checkAge(age) {
+  age >= 18
+    ? document.write("Добро пожаловать!")
+    : document.write("Родители разрешили?");
+}
+checkAge(age);

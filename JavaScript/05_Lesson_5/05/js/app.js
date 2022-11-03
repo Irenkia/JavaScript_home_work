@@ -1,5 +1,4 @@
 // 1 -----------------------------
-// 1 version----------------------
 document.write("<h2> Создайте объект криптокошилек. <br/><hr/>");
 var cryptoWallet = {
   name: "Bob",
@@ -31,17 +30,47 @@ var cryptoWallet = {
         this[valuta].logo
       } осталось ${
         this[valuta].amount
-      } монет,</br> если вы сегодня продадите их то,</br> получите ${
+      } монет,</br> если вы сегодня продадите их то,</br> получите ${(
         this[valuta].amount * this[valuta].course
-      } грн.</p>`
+      ).toFixed(2)} грн.</p>`
     );
   },
 };
 cryptoWallet.show("btn");
 document.write("<hr/>");
-
-// 2 version----------------------
-
 // 2 -----------------------------
-
-// 3 -----------------------------
+document.write("<h2> Создать объект “Документ”. <br/><hr/>");
+var myDocument = {
+  header: "",
+  body: "",
+  footer: "",
+  date: "",
+  app: {
+    header: {},
+    body: {},
+    footer: {},
+    date: {},
+  },
+  fill: () => {
+    header = prompt(`Введите название документа :`, ``);
+    body = prompt(`Введите текс документа :`, ``);
+    footer = prompt(`Введите данные создателя документа :`, ``);
+    date = prompt(`Введите дату документа :`, ``);
+    this.app.header = prompt(`Введите название приложения :`, ``);
+    this.app.body = prompt(`Введите текс приложения :`, ``);
+    this.app.footer = prompt(`Введите данные создателя приложения :`, ``);
+    this.app.date = prompt(`Введите дату приложения :`, ``);
+  },
+  show: function () {
+    document.write(`<h1>${header}</h1>`);
+    document.write(`<p>${body}</p>`);
+    document.write(`<p>${footer}</p>`);
+    document.write(`<p>${date}</p>`);
+    document.write(`<h2>${app.header}</h2>`);
+    document.write(`<p>${app.header}</p>`);
+    document.write(`<p>${app.header}</p>`);
+    document.write(`<p>${app.header}</p>`);
+  },
+};
+myDocument.fill();
+myDocument.show();

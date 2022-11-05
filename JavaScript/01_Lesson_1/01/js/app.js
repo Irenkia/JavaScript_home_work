@@ -8,3 +8,5 @@ document.write(
     <footer class="d-flex justify-content-center align-items-center">footer 800*200</footer>
     </div>`
 );
+
+

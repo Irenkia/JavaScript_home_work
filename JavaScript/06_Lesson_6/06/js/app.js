@@ -33,3 +33,34 @@ document.write(`<p>2. Разработайте функцию-конструкт
 объект Human(человек). Создайте массив объектов и реализуйте функцию, которая
 будет сортировать элементы массива по значению свойства Age по возростанию
 или по убыванию. <br/><hr/>`);
+function Human() {
+  this.name = prompt(`Введите имя : `, ``);
+  this.surname = prompt(`Введите фамилию : `, ``);
+  this.age = +prompt(`Введите возраст : `, ``);
+}
+function show(array) {
+  for (var i = 0; i < array.length; i++) {
+    document.write(
+      `№ : ${i + 1} </br> Имя : ${array[i].name} </br> Фамилия : ${
+        array[i].surname
+      } </br> Возраст : ${array[i].age} </br><hr/>`
+    );
+  }
+}
+var humans = new Array(5);
+document.write(`Наши работники : </br><hr/>`);
+for (var i = 0; i < humans.length; i++) {
+  humans[i] = new Human();
+}
+show(humans);
+document.write(`- Сортируем наш массив по возрастанию по возрасту : </br>`);
+humans.sort(function (a, b) {
+  return a.age - b.age;
+});
+
+show(humans);
+document.write(`- Сортируем наш массив по убыванию по возрасту : </br>`);
+humans.sort(function (a, b) {
+  return b.age - a.age;
+});
+show(humans);

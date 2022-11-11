@@ -1,0 +1,9 @@
+Курс валют по API
+
+посилання на API endpoint:
+https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=20221110&json 5
+
+використати його при fetch даних
+і побудувати таблицю курсу валют, необхідні поля - txt, rate
+
+також зробити пошук аналогічний прикладу з countries на занятті.

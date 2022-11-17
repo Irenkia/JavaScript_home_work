@@ -1,8 +1,8 @@
-window.rateBackup = [];
+window.ratesBackup = [];
 
 function filterRates(searchValue) {
   var result = [];
-  for (var rate of rateBackup) {
+  for (var rate of ratesBackup) {
     var rateName = rate.txt.toLowerCase();
     if (rateName.indexOf(searchValue) >= 0) {
       result.push(rate);
@@ -15,7 +15,7 @@ function renderRates(rates) {
   var htmlStr = "";
 
   if (!rates.length) {
-    htmlStr = `<tr><td  colspan="4" class="text-center">No Items Found</td></tr>`;
+    htmlStr = `<tr><td  colspan="4" class="text-center"> No Items Found </td></tr>`;
     document.getElementById("rates").innerHTML = htmlStr;
     return;
   }
@@ -44,7 +44,7 @@ fetch(
 )
   .then((res) => res.json())
   .then(function (data) {
-    window.rateBackup = data;
+    window.ratesBackup = data;
     renderRates(data);
   })
   .catch((error) => console.log("Error: ", error));

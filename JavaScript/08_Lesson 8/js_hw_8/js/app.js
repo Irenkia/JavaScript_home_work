@@ -40,6 +40,20 @@ function renderProducts(products) {
   document.getElementById("products").innerHTML = htmlStr;
 }
 
+var invocation = new XMLHttpRequest();
+var url = "https://fakestoreapi.com/products";
+var body = '<?xml version="1.0"?><person><name>Arun</name></person>';
+
+function callOtherDomain() {
+  if (invocation) {
+    invocation.open("POST", url, true);
+    invocation.setRequestHeader("X-PINGOTHER", "pingpong");
+    invocation.setRequestHeader("Content-Type", "application/xml");
+    invocation.onreadystatechange = handler;
+    invocation.send(body);
+  }
+}
+
 fetch("https://fakestoreapi.com/products")
   .then((response) => response.json())
   .then(function (data) {

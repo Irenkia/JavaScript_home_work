@@ -24,6 +24,15 @@ function searchProducts(search) {
   renderProducts(filterProducts);
 }
 
+function changeSelectCategory(someCategory) {
+  const filterProductsCategory = store
+    .getProductsBackup()
+    .filter(function (product, index, array) {
+      return product.category === someCategory;
+    });
+  renderProducts(filterProductsCategory);
+}
+
 function renderProducts(products) {
   let htmlStr = "";
 
@@ -85,9 +94,28 @@ fetch("https://fakestoreapi.com/products")
 
     store.setProductsBackup(data);
     renderProducts(data);
+
+    document
+      .querySelector("#mySelect")
+      .addEventListener("change", changeCategory());
   });
 
 document.querySelector("#search").onkeyup = function (e) {
   const searchValue = e.currentTarget.value.toLowerCase().trim();
   searchProducts(searchValue);
 };
+
+function changeCategory() {
+  const changeSelect = document.querySelector(".custom-select");
+  let someCategory = "";
+  changeSelect.onchange = function (e) {
+    //console.log(changeSelect);
+    //console.log(e.target.value);
+    someCategory = e.target.value;
+    if (someCategory == "All") {
+      renderProducts(store.getProductsBackup());
+    } else {
+      changeSelectCategory(someCategory);
+    }
+  };
+}

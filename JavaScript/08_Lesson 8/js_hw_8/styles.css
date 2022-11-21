@@ -1,5 +1,20 @@
+h2 {
+  color: #57beff;
+  text-shadow: 2px 2px 0 #61f4ff;
+}
 .card-img-top {
   max-height: 15rem;
   width: auto;
   max-width: 80%;
+}
+.card {
+  /* background-color: #fff7e0; */
+  background-color: #f5faff;
+}
+.card:hover {
+  border: 5px inset #a8d4ff;
+  background-color: #e6f2ff;
+}
+.card-img-top {
+  box-shadow: 2px 2px 20px 20px white;
 }

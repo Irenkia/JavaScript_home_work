@@ -1,0 +1,14 @@
+.inner {
+  max-width: 38rem;
+}
+.square {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.125rem;
+  background-color: #2d2d2d;
+  box-shadow: 0 0 2px #000;
+  transition: 2s ease;
+}
+.square:hover {
+  transition-duration: 0s;
+}

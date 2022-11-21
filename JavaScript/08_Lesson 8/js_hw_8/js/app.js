@@ -109,8 +109,8 @@ function changeCategory() {
   const changeSelect = document.querySelector(".custom-select");
   let someCategory = "";
   changeSelect.onchange = function (e) {
-    //console.log(changeSelect);
-    //console.log(e.target.value);
+    console.log(changeSelect);
+    console.log(e.target.value);
     someCategory = e.target.value;
     if (someCategory == "All") {
       renderProducts(store.getProductsBackup());

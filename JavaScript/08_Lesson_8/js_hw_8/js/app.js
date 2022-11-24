@@ -49,9 +49,9 @@ function renderProducts(products) {
   document.getElementById("products").innerHTML = htmlStr;
 }
 
-var invocation = new XMLHttpRequest();
-var url = "https://fakestoreapi.com/products";
-var body = '<?xml version="1.0"?><person><name>Arun</name></person>';
+let invocation = new XMLHttpRequest();
+const url = "https://fakestoreapi.com/products";
+let body = '<?xml version="1.0"?><person><name>Arun</name></person>';
 
 function callOtherDomain() {
   if (invocation) {
@@ -109,8 +109,8 @@ function changeCategory() {
   const changeSelect = document.querySelector(".custom-select");
   let someCategory = "";
   changeSelect.onchange = function (e) {
-    console.log(changeSelect);
-    console.log(e.target.value);
+    //console.log(changeSelect);
+    //console.log(e.target.value);
     someCategory = e.target.value;
     if (someCategory == "All") {
       renderProducts(store.getProductsBackup());

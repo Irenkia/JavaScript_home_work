@@ -8,7 +8,6 @@ h2 {
   max-width: 80%;
 }
 .card {
-  /* background-color: #fff7e0; */
   background-color: #f5faff;
 }
 .card:hover {
@@ -16,5 +15,8 @@ h2 {
   background-color: #e6f2ff;
 }
 .card-img-top {
+  max-height: 15rem;
+  width: auto;
+  max-width: 80%;
   box-shadow: 2px 2px 20px 20px white;
 }

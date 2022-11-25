@@ -1,28 +1,14 @@
 window.onload = () => {
-  const divCountries = document.querySelector("#countries");
-  const table = document.createElement("table");
-  table.className = "table table-bordered table-striped";
-  divCountries.appendChild(table);
-  const thead = document.createElement("thead");
-  table.appendChild(thead);
-  const tbody = document.createElement("tbody");
-  table.appendChild(tbody);
-
-  const row_1 = document.createElement("tr");
-  const heading_1 = document.createElement("th");
-  heading_1.innerHTML = "Name";
-  const heading_2 = document.createElement("th");
-  heading_2.innerHTML = "Population";
-  const heading_3 = document.createElement("th");
-  heading_3.innerHTML = "Area";
-  const heading_4 = document.createElement("th");
-  heading_4.innerHTML = "Region";
-
-  row_1.appendChild(heading_1);
-  row_1.appendChild(heading_2);
-  row_1.appendChild(heading_3);
-  row_1.appendChild(heading_4);
-  thead.appendChild(row_1);
+  let htmlTable = document.createElement("table");
+  htmlTable.className = "table table-bordered table-striped";
+  htmlTable.innerHTML = `<thead><tr>
+  <th>Name</th>
+  <th>Population</th>
+  <th>Area</th>
+  <th>Region</th>
+  </tr></thead>
+  <tbody></tbody>`;
+  document.querySelector("#countries").append(htmlTable);
 };
 
 function createStore() {

@@ -102,7 +102,7 @@ function bindingToButton() {
   const input = document.querySelector("#search");
   input.onkeyup = (e) => {
     const searchValue = e.currentTarget.value.toLowerCase().trim();
-    console.log(searchValue);
+    console.log(searchValue, e.currentTarget);
     searchByButton(searchValue);
   };
 }

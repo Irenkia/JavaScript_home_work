@@ -22,7 +22,7 @@ function createStore() {
 const store = createStore();
 
 let invocation = new XMLHttpRequest();
-const url = "https://fakestoreapi.com/products";
+const url = "https://restcountries.com/v2/all";
 let body = '<?xml version="1.0"?><person><name>Arun</name></person>';
 
 function callOtherDomain() {

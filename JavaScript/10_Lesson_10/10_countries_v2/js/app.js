@@ -56,6 +56,9 @@ fetch(`https://restcountries.com/v2/all`)
 //   console.log(e.target.innerHTML, e.target);
 // };
 document.querySelector("thead").onclick = (e) => {
+  // if (document.querySelector("bg-info")) {
+  //   document.querySelector("bg-info").remove();
+  // }
   const numberFieldList = ["population", "area"];
   let field = e.target.getAttribute("data-sort");
   console.log(e.target.innerHTML, e.target);

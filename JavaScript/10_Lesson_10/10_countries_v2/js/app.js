@@ -12,7 +12,7 @@
 // });
 
 let invocation = new XMLHttpRequest();
-const url = "https://fakestoreapi.com/products";
+const url = "https://restcountries.com/v2/all";
 let body = '<?xml version="1.0"?><person><name>Arun</name></person>';
 
 function callOtherDomain() {
@@ -34,6 +34,54 @@ const createStore = () => {
 };
 const store = createStore();
 
+function buildAutocomplete(data) {
+  console.log(data);
+  $("#countries-autocomplete").autocomplete({
+    source: data,
+    select: function (event, ui) {
+      const searchValue = ui.item.value;
+      const countriesBackup = store.getCountries();
+      const filteredCountries = countriesBackup.filter(
+        (el) => el.name === searchValue
+      );
+      renderCountries(filteredCountries);
+    },
+  });
+  $("#countries-autocomplete").autocomplete("enable");
+}
+
+$("#btn_clear").on("click", function (e) {
+  $("#countries-autocomplete").val("");
+  renderCountries(store.getCountries());
+});
+
+let state = true;
+$("#btn_color_animation").on("click", function (e) {
+  if (state) {
+    $("#effect")
+      .animate(
+        {
+          backgroundColor: "#aa0000",
+          color: "#fff",
+        },
+        1000
+      )
+      .addClass("red");
+  } else {
+    $("#effect")
+      .animate(
+        {
+          backgroundColor: "#fff",
+          color: "#000",
+        },
+        1000
+      )
+      .removeClass("red")
+      .addClass("white");
+  }
+  state = !state;
+});
+
 const renderCountries = (countries) => {
   let htmlStr = countries.reduce((acc, el) => {
     return (
@@ -49,6 +97,7 @@ fetch(`https://restcountries.com/v2/all`)
   .then((data) => {
     store.setCountries(data);
     renderCountries(data);
+    buildAutocomplete(data.map((country) => country.name));
   });
 
 // document.querySelector("thead").onclick = (e) => {
@@ -61,8 +110,8 @@ document.querySelector("thead").onclick = (e) => {
   // }
   const numberFieldList = ["population", "area"];
   let field = e.target.getAttribute("data-sort");
+  console.log(field);
   console.log(e.target.innerHTML, e.target);
-  console.log(field.innerHTML);
   const countriesBackup = store.getCountries();
   countriesBackup.sort((countryA, countryB) => {
     if (numberFieldList.includes(field)) {

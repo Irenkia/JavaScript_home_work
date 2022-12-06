@@ -38,6 +38,9 @@ function Auto_Fuel(brand, model, year, vin_code, engineVolume, fuelInLiters) {
   this.engineVolume = engineVolume;
   this.fuelInLiters = fuelInLiters;
 }
+
+Auto_Fuel.prototype = Object.create(Auto.prototype);
+
 Auto_Fuel.prototype.showFuelConsumption = function () {
   let htmlStrFuel = "";
   htmlStrFuel += `${this.engineVolume} ${this.fuelInLiters}`;
@@ -89,11 +92,11 @@ let carFuel5 = new Auto_Fuel(
 );
 let carsFuel = [carFuel1, carFuel2, carFuel3, carFuel4, carFuel5];
 
-// let renderCarsFuelShow = "";
-// for (let i = 0; i < carsFuel.length; i++) {
-//   renderCarsFuelShow += `${i + 1} - ${carsFuel[i].log()} </br>`;
-// }
-// document.querySelector(".cars-fuel-show").innerHTML = renderCarsFuelShow;
+let renderCarsFuelShow = "";
+for (let i = 0; i < carsFuel.length; i++) {
+  renderCarsFuelShow += `${i + 1} - ${carsFuel[i].log()} </br>`;
+}
+document.querySelector(".cars-fuel-show").innerHTML = renderCarsFuelShow;
 
 let renderCarsFuel = "";
 for (let i = 0; i < carsFuel.length; i++) {
@@ -108,6 +111,9 @@ function Auto_Electric(brand, model, year, vin_code, batteryCapacity) {
   this.vin_code = vin_code;
   this.batteryCapacity = batteryCapacity;
 }
+
+Auto_Electric.prototype = Object.create(Auto.prototype);
+
 Auto_Electric.prototype.showBatteryConfig = function () {
   let htmlStrElectric = "";
   htmlStrElectric += `${this.batteryCapacity}`;
@@ -159,14 +165,14 @@ let carsElectric = [
 console.log("10 - ", carElectric1);
 console.log("11 - ", carsElectric);
 
-// let renderCarsElectricShow = "";
-// for (let i = 0; i < carsElectric.length; i++) {
-//   renderCarsElectricShow += `${i + 1} - ${carsElectric[
-//     i
-//   ].log()} (vin-коде 17 символов - ${carsElectric[i].checkVin()})  </br>`;
-// }
-// document.querySelector(".cars-electric-show").innerHTML =
-//   renderCarsElectricShow;
+let renderCarsElectricShow = "";
+for (let i = 0; i < carsElectric.length; i++) {
+  renderCarsElectricShow += `${i + 1} - ${carsElectric[
+    i
+  ].log()} (vin-коде 17 символов - ${carsElectric[i].checkVin()})  </br>`;
+}
+document.querySelector(".cars-electric-show").innerHTML =
+  renderCarsElectricShow;
 
 let renderCarsElectric = "";
 for (let i = 0; i < carsElectric.length; i++) {
@@ -176,6 +182,6 @@ for (let i = 0; i < carsElectric.length; i++) {
 }
 document.querySelector(".cars-electric").innerHTML = renderCarsElectric;
 
-//console.log(carElectric1.log());
-//console.log(carElectric1.checkVin());
+console.log(carElectric1.log());
+console.log(carElectric1.checkVin());
 console.log(carElectric1.showBatteryConfig());

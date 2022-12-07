@@ -6,13 +6,10 @@ function Auto(brand, model, year, vin_code) {
 }
 
 Auto.prototype.log = function () {
-  let htmlStr = "";
-  htmlStr += `${this.brand} ${this.model} ${this.year}`;
-  return htmlStr;
+  return `${this.brand} ${this.model} ${this.year}`;
 };
 Auto.prototype.checkVin = function () {
-  let cheeckVin = true;
-  return this.vin_code.length === 17 ? cheeckVin : !cheeckVin;
+  return this.vin_code.length === 17;
 };
 
 let car1 = new Auto("Jeep", "Grand Cherokee", 1998, "1J4GZ58Y2WC163200");
@@ -42,9 +39,7 @@ function Auto_Fuel(brand, model, year, vin_code, engineVolume, fuelInLiters) {
 Auto_Fuel.prototype = Object.create(Auto.prototype);
 
 Auto_Fuel.prototype.showFuelConsumption = function () {
-  let htmlStrFuel = "";
-  htmlStrFuel += `${this.engineVolume} ${this.fuelInLiters}`;
-  return htmlStrFuel;
+  return `${this.engineVolume} ${this.fuelInLiters}`;
 };
 
 let carFuel1 = new Auto_Fuel(
@@ -115,9 +110,7 @@ function Auto_Electric(brand, model, year, vin_code, batteryCapacity) {
 Auto_Electric.prototype = Object.create(Auto.prototype);
 
 Auto_Electric.prototype.showBatteryConfig = function () {
-  let htmlStrElectric = "";
-  htmlStrElectric += `${this.batteryCapacity}`;
-  return htmlStrElectric;
+  return `${this.batteryCapacity}`;
 };
 
 let carElectric1 = new Auto_Electric(

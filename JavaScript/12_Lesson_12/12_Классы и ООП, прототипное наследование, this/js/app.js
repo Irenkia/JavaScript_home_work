@@ -7,14 +7,11 @@ class Auto {
   }
 
   log() {
-    let htmlStrAuto = "";
-    htmlStrAuto += `${this.brand} ${this.model} ${this.year}`;
-    return htmlStrAuto;
+    return `${this.brand} ${this.model} ${this.year}`;
   }
 
   checkVin() {
-    let cheeckVin = true;
-    return this.vin_code.length === 17 ? cheeckVin : !cheeckVin;
+    return this.vin_code.length === 17;
   }
 }
 
@@ -41,9 +38,7 @@ class Auto_Fuel extends Auto {
   }
 
   showFuelConsumption() {
-    let htmlStrFuel = "";
-    htmlStrFuel += `${this.engineVolume} ${this.fuelInLiters}`;
-    return htmlStrFuel;
+    return `${this.engineVolume} ${this.fuelInLiters}`;
   }
 }
 
@@ -108,9 +103,7 @@ class Auto_Electric extends Auto {
   }
 
   showBatteryConfig() {
-    let htmlStrElectric = "";
-    htmlStrElectric += `${this.batteryCapacity}`;
-    return htmlStrElectric;
+    return `${this.batteryCapacity}`;
   }
 }
 
